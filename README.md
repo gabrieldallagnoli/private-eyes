@@ -1,19 +1,22 @@
 # Private Eyes
 
-## Problema 
+## Problema
 
-Minha estação de trabalho fica virada direto para a porta do quarto, isto é, toda vez que alguém abre a porta, consegue ver tudo que estou fazendo e pode inclusive me dar um susto caso sua presença não seja notada por mim.
+Minha estação de trabalho está posicionada de frente para a porta do quarto. Isso permite que qualquer pessoa que entre veja minha tela imediatamente, além de poder me surpreender sem que eu perceba sua aproximação.
 
 ## Solução
 
-Construir um sistema simples que utiliza um celular com a câmera apontada para a porta, detectando qualquer possível movimento e me avisando em caso de alguém entrar, mandando um sinal para o meu PC, que eu poderia manipular de qualquer forma que queira.
+Implementei um sistema simples de detecção de movimento utilizando a câmera de um smartphone apontada para a porta. O celular transmite o vídeo via IP, e um script em Python com OpenCV processa os quadros em tempo real. Ao detectar movimento, o sistema envia um sinal ao meu computador, permitindo a execução de ações customizadas (como notificações, bloqueio de tela, etc).
 
-## Recursos Usados
+## Tecnologias Utilizadas
 
-- Smartphone
-- Python-OpenCV
-- IP Webcam
+- Smartphone com aplicativo **IP Webcam**
+    
+- Python com biblioteca **OpenCV**
+    
+- Conexão local (Wi-Fi)
+    
 
 ## Resultado
 
-Agora toda vez que alguém abre a porta, eu sou notificado e começa a tocar *Dance, Dance, Dance* no meu fone. **Magnífico!** 
+Sempre que há movimentação na porta, sou imediatamente notificado no PC. O sistema é leve, eficiente e fácil de adaptar para outros comportamentos.
