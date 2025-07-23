@@ -1,0 +1,12 @@
+[Unit]
+Description=Private Eyes - Detector de Presença em Python
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /home/gab/GitHub/pv-eyes/main.py
+WorkingDirectory=/home/gab/GitHub/pv-eyes
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
