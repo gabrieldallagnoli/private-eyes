@@ -1,4 +1,4 @@
-# Private Eyes - Detector de Presença em Python
+# Private Eyes
 
 ## Problema 
 
@@ -16,4 +16,4 @@ Construir um sistema simples que utiliza um celular com a câmera apontada para 
 
 ## Resultado
 
-Agora toda vez que alguém abre a porta, eu sou notificando com uma notificação no canto superior esquerdo da tela e começa a tocar no meu fone *Never Gonna Give You Up* do Rick Astley. **Sucesso Absoluto!** 
+Agora toda vez que alguém abre a porta, eu sou notificado e começa a tocar *Dance, Dance, Dance* no meu fone. **Magnífico!** 
