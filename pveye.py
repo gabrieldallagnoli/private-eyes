@@ -40,7 +40,7 @@ try:
             if player_proc is None or player_proc.poll() is not None:
                 player_proc = subprocess.Popen([
                     'mpv', '--no-terminal', '--loop',
-                    '/home/gab/.assets/private-eyes/snd.mp3'
+                    '/home/gab/.assets/pveye/*.opus'
                 ])
         else:
             if player_proc is not None:
