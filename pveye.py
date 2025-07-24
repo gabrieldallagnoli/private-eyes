@@ -14,6 +14,9 @@ gray1 = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
 gray1 = cv2.GaussianBlur(gray1, (21, 21), 0)
 
 player_proc = None
+motion_detected = False
+last_motion_time = 0
+music_duration = 0
 
 try:
     while True:
@@ -33,21 +36,27 @@ try:
         motion = any(cv2.contourArea(c) > 5000 for c in contours)
 
         if motion:
-            subprocess.run([
-                "notify-send",
-                "Tem alguém na porta! 🐒🚪"
-            ])
+            last_motion_time = time.time()
+
             if player_proc is None or player_proc.poll() is not None:
-                player_proc = subprocess.Popen([
-                    'mpv', '--no-terminal', '--loop',
-                    '/home/gab/.assets/pveye/*.opus'
+                subprocess.run([
+                    "notify-send",
+                    "Tem alguém na porta! 🐒🚪"
                 ])
-        else:
-            if player_proc is not None:
-                player_proc.terminate()
-                player_proc = None
+                player_proc = subprocess.Popen([
+                    'mpv', '--no-terminal',
+                    '/home/gab/.assets/pveye/these_dreams.opus'
+                ])
 
         gray1 = gray2
+
+        if player_proc is not None and player_proc.poll() is not None:
+            player_proc = None
+            if time.time() - last_motion_time < 2.0:
+                player_proc = subprocess.Popen([
+                    'mpv', '--no-terminal',
+                    '/home/gab/.assets/pveye/these_dreams.opus'
+                ])
 
         if cv2.waitKey(1) == 27:  # ESC
             break
